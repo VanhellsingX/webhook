@@ -22,11 +22,16 @@ $method = $_SERVER['REQUEST_METHOD'];
 			break;
 	}
 
-	$response = new \stdClass();
-	$responsemsg = new \stdClass();
+	//$response = new \stdClass();
 	
-	$response->payload->google->expectUserResponse = false;
-	$response->payload->google->richResponse->items[0]->simpleResponse->textToSpeech=$speech;
 
-echo json_encode($response);
+   $fulfillment = array("fulfillmentText" => $speech);
+
+   echo(json_encode($fulfillment));
+	
+	/*$response->payload->google->expectUserResponse = false;
+	$response->payload->google->richResponse->items[0]->simpleResponse->textToSpeech=$speech;
+	*/
+	
+//echo json_encode($response);
 ?>
